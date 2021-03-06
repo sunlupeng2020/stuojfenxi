@@ -14,6 +14,10 @@ $result = mysqli_query($conn,$sql);//查询有哪些班级
 	<title>查询为班级布置的OJ题目</title>
 </head>
 <body>
+	<?php
+	require_once("menu.php");//菜单
+	?>
+	<h3>查询为班级布置的OJ题目</h3>
 	<form name="form1" id="form1" action="banjiojzychp.php" method="post">
 		班级：<select name="banji" id="banji">
 			<?php

@@ -1,6 +1,7 @@
 <!-- buzhi.php -->
 <!-- 给学生布置OJ平台上的C语言编程题目 -->
 <?php
+require_once("menu.php");
 require "connections/conn.php";
 mysqli_query($conn,"set names 'utf8'");
 if(isset($_POST['banji']))
@@ -11,7 +12,7 @@ if(isset($_POST['banji']))
 	$timuids = $_POST['timuids'];
 	$chapterid = $_POST['chapter'];
 	$timuidshuzu = explode(",", $timuids);
-	$sql = "insert into chapojques(banjiid,chapterid,quesid,teacher) values(?,?,?,?)";
+	$sql = "insert ignore into chapojques(banjiid,chapterid,quesid,teacher) values(?,?,?,?)";
 	$stmt = mysqli_prepare($conn,$sql);
 	foreach ($timuidshuzu as $timuid)
 	{

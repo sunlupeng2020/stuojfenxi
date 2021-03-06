@@ -25,6 +25,10 @@ $result = mysqli_query($conn,$sql);//查询有哪些班级
     </script>
 </head>
 <body>
+	<?php
+require_once("menu.php");
+	?>
+	<h3>查询学生某章OJ作业完成情况</h3>
 	<form name="form1" id="form1" action="stuojzychp.php" method="post">
 		班级：<select name="banji" id="banji">
 			<?php

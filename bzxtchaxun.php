@@ -20,10 +20,15 @@
 	<div>
 		<div>
 <?php
+require_once "connections/conn.php";
 mysqli_query($conn,"set names 'utf8'");
 $sql = "select `id`,`name` from banji";
 $result = mysqli_query($conn,$sql);
 ?>
+<?php
+    require_once("menu.php");
+?>
+	<h3>按课程、章布置OJ编程题目</h3>
 	<form name="form1" method="post" action="">
 		班级：<select name="banji">
 			<?php
@@ -40,11 +45,7 @@ $result = mysqli_query($conn,$sql);
 		章次：<select name="chapter" id="chapter">
 			</select><br/>
 		<input type="submit" value="查询"/>
-		<input type="reset" value="重置"/>
 	</form>
-<?php
-mysqli_close($conn)
-?>
 </div>
 <!--显示查询结果-->
 <div>
@@ -53,11 +54,16 @@ mysqli_close($conn)
 		$banji = $_POST["banji"];
 		$course = $_POST["course"];
 		$chapter = $_POST["chapter"];
-		$sql ="select "
+		$sql ="select id,title,accept,submit from zznuojques where id in(select quesid from chapojques where banjiid=$banji and chapterid=(select id from chapter where courseid=$course and number=$chapter))";
+		$result = mysqli_query($conn,$sql);
+		while($row = mysqli_fetch_assoc($result)){
+			echo $row['id'].":".$row['title'].','.$row['accept'].'/'.$row['submit']."<br/>";
+		}
 	}
-
-
 	?>
+<?php
+mysqli_close($conn)
+?>
 </div>
 </div>
 </body>

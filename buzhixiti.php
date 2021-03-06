@@ -2,7 +2,7 @@
 	以班级为单位给学生布置各章的OJ编程题。
  -->
 <?php
-require "connections/conn.php"
+require_once "connections/conn.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,10 +23,13 @@ require "connections/conn.php"
 </head>
 <body>
 <?php
+require_once("menu.php");
+require_once "connections/conn.php";
 mysqli_query($conn,"set names 'utf8'");
 $sql = "select `id`,`name` from banji";
 $result = mysqli_query($conn,$sql);
 ?>
+	<h2>按课程、章布置OJ编程题目</h2>
 	<form name="form1" method="post" action="buzhi.php">
 		班级：<select name="banji">
 			<?php
@@ -42,12 +45,12 @@ $result = mysqli_query($conn,$sql);
 		</select><br/>
 		章次：<select name="chapter" id="chapter">
 			</select><br/>
-		题号：<input type="text" name="timuids" title="可以输入多个题目编号，中间用英文逗号隔开"><br/>
+		题号：<input type="text" name="timuids"  size="80" title="可以输入多个题目编号，中间用英文逗号隔开"><br/>
 		<input type="submit" value="提交"/>
 		<input type="reset" value="重置"/>
 	</form>
 <?php
-mysqli_close($conn)
+mysqli_close($conn);
 ?>
 </body>
 </html>

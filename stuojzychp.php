@@ -40,6 +40,9 @@ if(isset($_POST['banji']) && isset($_POST['course']) && isset($_POST['chapter'])
 	<title>班级的OJ任务</title>
 </head>
 <body>
+	<?php
+	require_once("menu.php");
+	?>
 	<h3>
 		<?php echo "$banjiname";?>&nbsp;<?php echo "$coursename";?>&nbsp;OJ练习任务完成情况表
 	</h3>
