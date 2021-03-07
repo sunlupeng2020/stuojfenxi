@@ -2,6 +2,7 @@
 <!-- stuojzy.php -->
 <!-- 查询学生OJ习题完成情况 -->
 <?php
+require_once("menu.php");
 require_once("connections/conn.php");
 mysqli_query($conn,"set names 'utf8'");
 $sql="select id,name from banji";

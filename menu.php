@@ -8,6 +8,6 @@
 <a href="banjiojzy.php">查询班级OJ习题</a> | 
 <a href="stuojzy.php">按章查询学生OJ习题完成情况</a> | 
 <a href="stuojzyall.php">查询整个课程学生OJ习题完成情况</a> | 
-<a href="ojsubtime.php">学生OJ提交时间查询</a><br/>
+<a href="ojsubtime.php">学生OJ提交时间查询</a> | <a href="crawstuojzy.php">爬取学生OJ作业完成情况</a><br/>
 </div>
 <hr/>
